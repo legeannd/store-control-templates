@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard</title>
+  {% load static %}
+  <link rel="stylesheet" href="{% static '/css/global.css' %}">
+  <link rel="stylesheet" href="{% static '/css/product_list/styles.css' %}">
+</head>
+<body>
+  <div class="container">
+    <header><span>Store Control</span></header>
+    <div class="container-body">
+      <div class="add-product-btn">
+        <button onclick="handleAddProduct()">Cadastrar Produto</button>
+      </div>
+      {% if not object_list %}
+        <div class="card">
+          <div class="info-1">
+            <span class="title">Nenhum produto cadsatrado. Cadastre um produto para utilizar o sistema</span>
+          </div>
+        </div>
+      {% endif %}
+      {% for product in object_list %}
+        <div class="card">
+          <div class="info-1">
+            <span class="title">
+              {{ product.title }}
+            </span>
+            <p class="description">
+              {{ product.description }}
+            </p>
+          </div>
+          <div class="info-2">
+            <span class="quantity">Em estoque: {{ product.quantity }}</span>
+            <span class="value">Valor: {{ product.value }}</span>
+            <span class="barcode">Código de barras: {{ product.barcode }}</span>
+          </div>
+          <div class="product-btn">
+            <button onclick="handleEditProduct({{ product.id }})"><img src="{% static 'icons/edit.svg'%}"></button>
+            <button onclick="handleDeleteProduct({{ product.id }})"><img src="{% static 'icons/trash.svg'%}"></button>
+          </div>
+        </div>
+      {% endfor %}
+      <div class="logout-btn">
+        <button onclick="handleLogout()">Sair</button>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
+
+{% block javascript %}
+<script>
+  function handleAddProduct() {
+    location.href = '{% url "product_new" %}';
+  }
+
+  function handleEditProduct(id) {
+    console.log(id);
+  }
+
+  function handleDeleteProduct(id) {
+    console.log(id);
+  }
+
+  function handleLogout() {
+
+  }
+</script>
+{% endblock %}

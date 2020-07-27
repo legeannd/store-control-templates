@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cadastrar Produto</title>
+  {% load static %}
+  <link rel="stylesheet" href="{% static '/css/product_form/styles.css' %}">
+  <link rel="stylesheet" href="{% static '/css/global.css' %}">
+</head>
+<body>
+  <div class="container">
+    <header><span>Store Control</span></header>
+    <div class="container-body">
+      <div class="card">
+        <div class="card-header">
+          <h1>Digite os dados do produto</h1>
+        </div>
+        <div class="inputs">
+          <div class="input-group">
+            <input type="text" value="{{ form.title.as_input }}" placeholder="Nome do produto">
+            <input type="number" value="{{ form.quantity.as_input }}" placeholder="Quantidade">
+            {{form.description.as_textarea}}
+            <div class="info-block">
+              <input type="number" step="0.01" value="{{ form.value.as_input }}" placeholder="Valor">
+              <input type="text" value="{{ form.barcode.as_input }}" placeholder="Código de barras">
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="create-btn">
+        <button type="submit">Cadastrar produto</button>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
+
+<!-- <h1>Product Edit</h1>
+<form method="post">{% csrf_token %}
+  {{ form.title }}
+  {{ form.quantity }}
+  <button type="submit">Submit</button>
+</form> -->
