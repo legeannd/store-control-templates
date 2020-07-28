@@ -22,11 +22,13 @@ class ProductForm(forms.ModelForm):
             attrs={"placeholder": "Descrição"}
         )
     )
-    value = forms.FloatField(
+    value = forms.DecimalField(
         required=True,
         widget=forms.NumberInput(
             attrs={"placeholder": "Valor", "step": "0.1"}
-        )
+        ),
+        max_digits=8,
+        decimal_places=2
     )
     barcode = forms.CharField(
         required=True,
