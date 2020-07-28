@@ -31,7 +31,7 @@ $ cd .\storecontrolapp\
 $ python manage.py runserver
 ```
 
-Quando terminar, basta acessar a url indicada no terminal.
+Quando terminar, basta acessar a url `http://localhost:8000/login/`.
 
 ---
 ###### Developed by [Gean Lucas](https://www.linkedin.com/in/geanlucaas/) :rocket:.
