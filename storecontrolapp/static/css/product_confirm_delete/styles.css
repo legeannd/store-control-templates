@@ -44,7 +44,7 @@ header span {
   justify-content: center;
 }
 
-.container-body .add-product-btn, .logout-btn {
+.container-body .back-btn, .delete-btn {
   max-width: 1120px;
   margin: 100px 0;
   display: flex;
@@ -68,39 +68,9 @@ header span {
   margin: 20px 0 20px 40px;
 }
 
-.card .info-2 {
-  margin: 20px 0;
-  max-width: 200px;
-  font-size: 18px;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: flex-end;
-  font-weight: bold;
-  text-align: right;
-}
-
-.card .product-btn {
-  margin: 20px 40px 0 0;
-  max-width: 100px;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: flex-end;
-}
-
 .card .title {
   font-weight: bold;
   font-size: 30px; 
-}
-
-.card .description {
-  margin-top: 10px;
-  font-size: 18px;
-  line-height: 2rem;
-}
-
-.card .quantity, .value, .barcode {
-  width: 200px;
-  padding: 10px 0;
 }
 
 .card button {

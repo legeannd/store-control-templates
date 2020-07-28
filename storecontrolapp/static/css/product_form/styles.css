@@ -103,8 +103,8 @@ header span {
   margin-bottom: 50px;  
 }
 
-.inputs input, textarea::placeholder {
-  color: rgba(0, 0, 0, 0.1);
+.inputs input::placeholder, textarea::placeholder {
+  color: rgba(0, 0, 0, 0.5);
 }
 
 .inputs textarea {

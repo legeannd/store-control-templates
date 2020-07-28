@@ -1,0 +1,97 @@
+.container {
+  width: 100vh;
+  height: 100vh;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.card {
+  width: 720px;
+  background: #FFF;
+  border: 0px solid;
+  border-radius: 5px;
+}
+
+.card-header {
+  width: 720px;
+  height: 150px;
+  background: #e74c3c;
+  border: 0px solid;
+  border-radius: 5px 5px 0px 0px;
+  display: flex;
+  padding: 0 0 0 40px;
+  align-items: center;
+}
+
+.card-header h1 {
+  font-weight: bold;
+  font-size: 64px;
+  color: #fff;
+}
+
+.inputs {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.inputs .input-group {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 50px 0 0 0;
+}
+
+.inputs .input-group input {
+  width: 600px;
+  height: 60px;
+  background: rgba(236, 240, 241, 0.1);
+  font-weight: normal;
+  font-size: 24px;
+  color: #000;
+  border: 0px solid;
+  border-radius: 5px;
+  caret-color: #000;
+  padding: 16px;
+  margin-bottom: 50px;
+}
+
+.inputs .input-group input::placeholder {
+  color: rgba(0, 0, 0, 0.5);
+}
+
+.inputs .password-block {
+  width: 600px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.inputs .password-block input {
+  width: 250px; 
+}
+
+.inputs .button-group {
+  width: 600px;
+  margin-bottom: 50px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.inputs button {
+  width: 250px;
+  height: 60px;
+  background: #e74c3c;
+  border: 0px solid;
+  border-radius: 5px;
+  color: #fff;
+  font-weight: bold;
+  font-size: 24px;
+  transition: background .2s;
+}
+
+.inputs button:hover {
+  background: rgba(231, 76, 60, 0.8);
+}

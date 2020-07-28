@@ -1,5 +1,49 @@
-<h1>Product delete</h1>
-<form method="post">{% csrf_token %}
-  Are you sure you want to delete "{{ object.title }}"?
-  <button type="submit">Confirm</button>
-</form>
+{% if user.is_authenticated %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Deletar produto</title>
+  {% load static %}
+  <link rel="stylesheet" href="{% static '/css/global.css' %}">
+  <link rel="stylesheet" href="{% static '/css/product_confirm_delete/styles.css' %}">
+</head>
+<body>
+  <div class="container">
+    <header><span>Store Control</span></header>
+    <div class="container-body">
+      <div class="back-btn">
+        <button onclick="backToHome()">Voltar para os produtos</button>
+      </div>
+      <form method="post" id="delete-product-form" >{% csrf_token %}
+        <div class="card">
+          <div class="info-1">
+            <span class="title">Tem certeza de que quer excluir o produto "{{ object.title }}"?</span>
+          </div>
+        </div>
+      </form>
+      <div class="delete-btn">
+        <button onclick="handleDeleteProduct()">Confirmar</button>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
+
+{% block javascript %}
+<script>
+  function handleDeleteProduct() {
+    document.getElementById("delete-product-form").submit();
+  }
+
+  function backToHome() {
+    location.href = '{% url "product_list" %}';
+  }
+</script>
+{% endblock %}
+{% else %}
+<script>
+  location.href = '{% url "login" %}'
+</script>
+{% endif %}

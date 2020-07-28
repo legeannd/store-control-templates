@@ -1,3 +1,4 @@
+{% if user.is_authenticated %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -18,7 +19,7 @@
       {% if not object_list %}
         <div class="card">
           <div class="info-1">
-            <span class="title">Nenhum produto cadsatrado. Cadastre um produto para utilizar o sistema</span>
+            <span class="title">Nenhum produto cadastrado. Cadastre um produto para utilizar o sistema</span>
           </div>
         </div>
       {% endif %}
@@ -38,8 +39,16 @@
             <span class="barcode">Código de barras: {{ product.barcode }}</span>
           </div>
           <div class="product-btn">
-            <button onclick="handleEditProduct({{ product.id }})"><img src="{% static 'icons/edit.svg'%}"></button>
-            <button onclick="handleDeleteProduct({{ product.id }})"><img src="{% static 'icons/trash.svg'%}"></button>
+            <a href="{% url "product_edit" product.id %}">
+              <button>
+                <img src="{% static 'icons/edit.svg'%}">
+              </button>
+            </a>
+            <a href="{% url "product_delete" product.id %}">
+              <button>
+                <img src="{% static 'icons/trash.svg'%}">
+              </button>
+            </a>
           </div>
         </div>
       {% endfor %}
@@ -57,16 +66,13 @@
     location.href = '{% url "product_new" %}';
   }
 
-  function handleEditProduct(id) {
-    console.log(id);
-  }
-
-  function handleDeleteProduct(id) {
-    console.log(id);
-  }
-
   function handleLogout() {
-
+    location.href = '{% url "logout" %}'
   }
 </script>
 {% endblock %}
+{% else %}
+<script>
+  location.href = '{% url "login" %}'
+</script>
+{% endif %}
