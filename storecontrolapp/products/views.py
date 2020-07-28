@@ -1,10 +1,40 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from django.forms import ModelForm
 from django import forms
 
 from products.models import Product
 
-class ProductForm(ModelForm):
+class ProductForm(forms.ModelForm):
+    title = forms.CharField(
+        required=True,
+        widget=forms.TextInput(
+            attrs={"placeholder": "Nome do produto"}
+        )
+    )
+    quantity = forms.IntegerField(
+        required=True,
+        widget=forms.NumberInput(
+            attrs={"placeholder": "Quantidade"}
+        )
+    )
+    description = forms.CharField(
+        required=True,
+        widget=forms.Textarea(
+            attrs={"placeholder": "Descrição"}
+        )
+    )
+    value = forms.FloatField(
+        required=True,
+        widget=forms.NumberInput(
+            attrs={"placeholder": "Valor", "step": "0.1"}
+        )
+    )
+    barcode = forms.CharField(
+        required=True,
+        widget=forms.TextInput(
+            attrs={"placeholder": "Código de barras"}
+        )
+    )
+
     class Meta:
         model = Product
         fields = ['title', 'quantity', 'description', 'value', 'barcode'] 
